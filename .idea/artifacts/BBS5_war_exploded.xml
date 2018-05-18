@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="BBS5" />
+          <element id="module-output" name="hrtms" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
@@ -44,7 +44,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/BBS5/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="BBS5/web/Web" />
+      <element id="javaee-facet-resources" facet="hrtms/web/Web" />
     </root>
   </artifact>
 </component>
