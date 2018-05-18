@@ -20,7 +20,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/hrtms" />
         <property name="username" value="root" />
-        <property name="password" value="6103214030" />
+        <property name="password" value="123456" />
     </bean>
     <context:component-scan base-package="model"/>
     <!-- 整合MyBatis，sqlsessionFactory，和映射文件，官方文档实例 ，无法创建成功，是因为UserMap普洱。xml出错。找不到类User-->

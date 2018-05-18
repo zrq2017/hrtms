@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp" %>
-<link rel="stylesheet" href="${basePath}/css/login.css ">
+<link rel="stylesheet" href="<%=path%>/css/login.css ">
 <body>
 <div class="container">
 	<div class="login-container">
