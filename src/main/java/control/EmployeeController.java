@@ -16,7 +16,7 @@ import serivce.EmployeeService;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/a")
+@RequestMapping("/employee")
 public class EmployeeController {
     /*
     遇到的问题：@service要标注ServiceImpl，否则报错。
@@ -41,7 +41,7 @@ public class EmployeeController {
     }
 
     //登录页面，点击登录按钮跳转到登录页面。或者默认跳转到登录页面。
-    @RequestMapping(value="/Login")
+    @RequestMapping(value={"/Login","login"})
     public String login(){
         return "Login";
     }
