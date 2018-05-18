@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.UserMapper">
+
+ <delete id="deleteUser" parameterType="int">
+    <!-- 方法的形参是id -->
+        delete from user where userId=#{id}
+    </delete>
+
+<insert id="save" parameterType="model.User">
+    INSERT into USER VALUE (userName,sex,isAdmin,passWord,email)
+</insert>
+
+<update id="update" parameterType="model.User">
+    UPDATE USER set userName=#{user.userName},sex=#{sex},isAdmin=#{isAdmin},passWord=#{passWord},email=#{email}
+    WHERE userId=#{userId}
+</update>
+
+<select id="findById" parameterType="int" resultType="model.User">
+    select * from WHERE userId=#{id};
+</select>
+
+<select id="findAll" resultType="model.User" >
+    SELECT*FROM USER
+</select>
+<!--
+    <select id="findUser" parameterType="model.User" resultType="model.User">
+        SELECT * from USER WHERE userName=#{userName} AND passWord=#{passWord}
+    </select>
+
+    明明是通过id=findEmployee 调用EmployeeMapper.xml中的SQL语句，为何会调用此处的findUser.
+    思考：在UserController和EmployeeController中存在一样的映射路径，看此情形先匹配了UserController中的方法。
+    原因：EmployeeController为注册成controller。
+-->
+
+</mapper>
