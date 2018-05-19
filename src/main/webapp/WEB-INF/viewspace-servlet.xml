@@ -17,10 +17,6 @@
     <context:component-scan base-package="serivce"/>
     <mvc:annotation-driven/>
 
-
-
-
-
     <!-- InternalResourceViewResolver 将使用定义的规则来解决视图名称。按照上述定义的规则，
        一个名称为 hello 的逻辑视图将发送给位于 /WEB-INF/jsp/hello.jsp 中实现的视图。-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

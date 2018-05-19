@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>登录</title>
-	<link type="text/css" rel="stylesheet" href="<%=path%>/css/login.css" />
+	<link type="text/css" rel="stylesheet" href="<%=path%>/css/slogin.css" />
 </head>
 <body>
 <div class="container">
