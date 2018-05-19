@@ -19,10 +19,10 @@
     <!--配置数据源-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
 
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/hrtms" />
-        <property name="username" value="root" />
-        <property name="password" value="123456" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.user}" />
+        <property name="password" value="${jdbc.password}" />
     </bean>
     <context:component-scan base-package="model"/>
     <!-- 整合MyBatis，sqlsessionFactory，和映射文件，官方文档实例 ，无法创建成功，是因为UserMap普洱。xml出错。找不到类User-->
