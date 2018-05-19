@@ -13,7 +13,7 @@
             <%--<li><a href="<%=path%>/employee/login" target="mainbody">个人中心</a></li>--%>
             <%--<li><a href="<%=path%>/hello" target="mainbody">绩效管理</a></li>--%>
             <c:forEach items="${navMap}" var="m">
-            <li><a href="${m.key}" target="mainbody"><c:out value="${m.value}"></c:out></a></li>
+            <li><a href="<%=path%>${m.key}" target="mainbody"><c:out value="${m.value}"></c:out></a></li>
             </c:forEach>
             <%--<%--%>
                 <%--Map<String,String> navMap=(Map<String,String>)session.getAttribute("navMap");--%>
