@@ -14,6 +14,8 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!--Spring与Mybatis的集成 -->
+    <!--引入外部properties文件  -->
+    <context:property-placeholder location="classpath:config.properties" />
     <!--配置数据源-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
 
