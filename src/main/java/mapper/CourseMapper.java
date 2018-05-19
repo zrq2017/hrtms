@@ -12,5 +12,5 @@ public interface CourseMapper {
     public List<Course> findByConditions(Course course);
     public void save(Course Course);
     public void update(Course Course);
-    public void delete(int id);
+    public int delete(int id);
 }

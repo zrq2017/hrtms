@@ -33,6 +33,7 @@ public class UrlController {
     @RequestMapping("logout")
     public String logout(HttpServletRequest request) {
         request.getSession().removeAttribute("navMap");
+        request.getSession().removeAttribute("role");
         request.getSession().removeAttribute("User");
         return "home";
     }
@@ -81,6 +82,7 @@ public class UrlController {
             }
             System.out.println("path:"+request.getContextPath());
             request.getSession().setAttribute("User",user);
+            request.getSession().setAttribute("role",url);
             request.getSession().setAttribute("navMap",navMap);
             return "redirect:/home";
         }

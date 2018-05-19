@@ -20,6 +20,12 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    @RequestMapping("deleteCourse")
+    public String deleteCourse(Map<String,Object> map,Integer id){
+        int i=adminService.deleteCourse(id);
+        return course(map);
+    }
+
     @RequestMapping("course")
     public String course(Map<String,Object> map){
         List<Course> courseList=adminService.findAll();

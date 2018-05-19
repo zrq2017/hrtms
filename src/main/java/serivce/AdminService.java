@@ -21,4 +21,8 @@ public class AdminService {
     public List<Course> findAll() {
         return courseMapper.findAll();
     }
+
+    public int deleteCourse(Integer id) {
+        return courseMapper.delete(id);
+    }
 }
