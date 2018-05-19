@@ -12,12 +12,12 @@
     </delete>
 
     <insert id="save" parameterType="model.Employee">
-        INSERT into employee VALUE (name,sex,year,passWord)
+        INSERT into employee VALUE (name,sex,year,password)
     </insert>
 
     <update id="update" parameterType="model.Employee">
-        UPDATE USER set userName=#{user.userName},sex=#{sex},isAdmin=#{isAdmin},passWord=#{passWord},email=#{email}
-        WHERE userId=#{userId}
+        UPDATE USER set username=#{user.username},sex=#{sex},isAdmin=#{isAdmin},password=#{password},email=#{email}
+        WHERE id=#{id}
     </update>
 
     <select id="findEmployee" parameterType="String" resultType="model.Employee">
@@ -25,7 +25,7 @@
     </select>
 
     <select id="findAll" resultType="model.Employee" >
-        SELECT*FROM employee
+        SELECT * FROM employee
     </select>
 
 

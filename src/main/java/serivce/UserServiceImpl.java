@@ -34,21 +34,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void add(User user) {
-
          this.userMapper.save(user);
-
     }
 
     @Override
     public Boolean login(String userName, String passWord) {
         System.out.println(userName);
-        this.user.setUserName(userName);
-        this.user.setPassWord(passWord);
+        this.user.setUsername(userName);
+        this.user.setPassword(passWord);
         User user=this.userMapper.findUser(this.user);
         if(user==null)
         return false;
         else {
-            System.out.println("已查询到对象"+user.getUserName()+user.getUserId());
+            System.out.println("已查询到对象"+user.getUsername()+user.getId());
             return true;
         }
     }
@@ -63,5 +61,11 @@ public class UserServiceImpl implements UserService {
     public void delete(int id) {
 
         this.userMapper.deleteUser(id);
+    }
+
+    //根据用户名密码及身份标识查询
+    @Override
+    public User findByRoleNamePassword(String role, String username, String password) {
+        return userMapper.findByRoleNamePassword(role,username,password);
     }
 }

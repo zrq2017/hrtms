@@ -10,9 +10,11 @@ public interface UserService {
     //注册
     void add(User user);
     // 登录
-    Boolean login(String userName, String passWord);
+    Boolean login(String username, String password);
     //查找，按用户名查找，用户id查找
-    User  findUser(String userName);
+    User  findUser(String username);
     //删除用户
     void delete(int id);
+    //根据用户名密码及身份标识查询
+    User findByRoleNamePassword(String role,String username,String password);
 }

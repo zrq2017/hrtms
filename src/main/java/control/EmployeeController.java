@@ -16,7 +16,7 @@ import serivce.EmployeeService;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/e")
 public class EmployeeController {
     /*
     遇到的问题：@service要标注ServiceImpl，否则报错。
@@ -39,38 +39,32 @@ public class EmployeeController {
         this.employeeService.add(employee);
         return "hello";
     }
-
-    //登录页面，点击登录按钮跳转到登录页面。或者默认跳转到登录页面。
-    @RequestMapping(value={"/Login","login"})
-    public String login(){
-        return "Login";
-    }
-
-    //点击登录按钮，进行登录校验。
-    /*
-    登录的3种状态，用String还是用int呢？，需要将这3种状态传到页面。
-
-     */
-    @RequestMapping("/checkLogin")
-    public String  checklogin(@RequestParam String userName, @RequestParam String passWord, Model model,Map<String,Object> map){
-        System.out.println(userName+passWord);
-        int flag=this.employeeService.login(userName,passWord);
-        if(flag==0) {
-            model.addAttribute("msg","用户不存在！");
-
-            return "Login";//将model中的信息传到首页。
-        }
-        else if(flag==1){
-
-             model.addAttribute("msg","密码错误！");
-            return "Login";
-        }
-        else{//此处应该将登录者的信息传到首页。对于前后端分离，不使用JSP页面，那么应该将数据以JSON的形式返回给客户端。
-//            model.addAttribute("User","userName");
-            map.put("User","test");
-            return "Shouye";
-        }
-    }
+//
+//    //点击登录按钮，进行登录校验。
+//    /*
+//    登录的3种状态，用String还是用int呢？，需要将这3种状态传到页面。
+//
+//     */
+//    @RequestMapping("/checkLogin")
+//    public String  checklogin(@RequestParam String userName, @RequestParam String passWord, Model model,Map<String,Object> map){
+//        System.out.println(userName+passWord);
+//        int flag=this.employeeService.login(userName,passWord);
+//        if(flag==0) {
+//            model.addAttribute("msg","用户不存在！");
+//
+//            return "Login";//将model中的信息传到首页。
+//        }
+//        else if(flag==1){
+//
+//             model.addAttribute("msg","密码错误！");
+//            return "Login";
+//        }
+//        else{//此处应该将登录者的信息传到首页。对于前后端分离，不使用JSP页面，那么应该将数据以JSON的形式返回给客户端。
+////            model.addAttribute("User","userName");
+//            map.put("User","test");
+//            return "Shouye";
+//        }
+//    }
 
     @RequestMapping("{url}")
     @ResponseBody

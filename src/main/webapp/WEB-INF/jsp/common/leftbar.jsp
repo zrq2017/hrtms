@@ -3,15 +3,21 @@
 <html>
 <head>
     <title>左侧导航</title>
+    <link type="text/css" rel="stylesheet" href="<%=path%>/bootstrap/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<%=path%>/css/css.css" />
 </head>
 <body>
 <div class="leftbar">
     <div class="lm01"> <img class="peptx" src="<%=path%>/images/tximg.jpg" />
         <div class="pepdet">
-            <p class="pepname">李小雅</p>
-            <p>李小雅</p>
-            <p>江苏话务一部三组</p>
+            <p class="pepname"><c:out value="${sessionScope.User.username}"/></p>
+            <p><c:out value="${sessionScope.User.name}"/></p>
+            <p><button class="btn btn-primary" onclick="logout()">注销</button></p>
+            <script>
+                function logout() {
+                    window.top.location.href="<%=path%>/logout"
+                }
+            </script>
         </div>
         <div class="clear"></div>
     </div>

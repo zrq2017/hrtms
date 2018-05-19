@@ -8,28 +8,32 @@
 
  <delete id="deleteUser" parameterType="int">
     <!-- 方法的形参是id -->
-        delete from user where userId=#{id}
+        delete from user where id=#{id}
     </delete>
 
 <insert id="save" parameterType="model.User">
-    INSERT into USER VALUE (userName,sex,isAdmin,passWord,email)
+    INSERT into USER VALUE (username,sex,isAdmin,password,email)
 </insert>
 
 <update id="update" parameterType="model.User">
-    UPDATE USER set userName=#{user.userName},sex=#{sex},isAdmin=#{isAdmin},passWord=#{passWord},email=#{email}
-    WHERE userId=#{userId}
+    UPDATE USER set username=#{user.username},sex=#{sex},isAdmin=#{isAdmin},password=#{password},email=#{email}
+    WHERE id=#{id}
 </update>
 
 <select id="findById" parameterType="int" resultType="model.User">
-    select * from WHERE userId=#{id};
+    select * from user WHERE id=#{id};
 </select>
 
 <select id="findAll" resultType="model.User" >
-    SELECT*FROM USER
+    SELECT * FROM USER
+</select>
+
+<select id="findByRoleNamePassword" resultType="model.User" >
+    SELECT * FROM ${role} where username=#{username} and password=#{password}
 </select>
 <!--
     <select id="findUser" parameterType="model.User" resultType="model.User">
-        SELECT * from USER WHERE userName=#{userName} AND passWord=#{passWord}
+        SELECT * from USER WHERE username=#{username} AND password=#{password}
     </select>
 
     明明是通过id=findEmployee 调用EmployeeMapper.xml中的SQL语句，为何会调用此处的findUser.

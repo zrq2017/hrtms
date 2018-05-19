@@ -37,9 +37,16 @@
 
     <!-- 添加jstl依赖 -->
     <dependency>
-      <groupId>jstl</groupId>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
+      <type>jar</type>
     </dependency>
 
     <dependency>

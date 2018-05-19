@@ -12,7 +12,7 @@
 <frameset rows="50px,*" border="0">
     <frame name="header" src="common/header" border="0"
             frameborder="no" target="mainbody"  scrolling="no"/>
-    <frameset cols="260px,*">
+    <frameset cols="241px,*">
         <frame name="leftbar" frameborder="no" src="common/leftbar" scrolling="no"/>
         <frame name="mainbody" frameborder="no" src="common/mainbody"/>
     </frameset>

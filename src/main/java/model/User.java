@@ -11,35 +11,45 @@ import org.springframework.stereotype.Component;
 @Component("user")
 public class User {
 
-	private int userId;
-	private String userName;
-	private String passWord;
+	private int id;
+	private String username;
+	private String name;
+	private String password;
 	private int sex;
+	private int year;
 	private String email;
 	private int isAdmin;
 
-	public int getUserId() {
-		return userId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	public String getName() {
+		return name;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getSex() {
@@ -48,6 +58,14 @@ public class User {
 
 	public void setSex(int sex) {
 		this.sex = sex;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	public String getEmail() {

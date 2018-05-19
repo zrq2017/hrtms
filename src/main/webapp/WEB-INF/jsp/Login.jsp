@@ -1,6 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglib.jsp" %>
-<link rel="stylesheet" href="<%=path%>/css/login.css ">
+<html>
+<head>
+	<title>登录</title>
+	<link type="text/css" rel="stylesheet" href="<%=path%>/css/login.css" />
+</head>
 <body>
 <div class="container">
 	<div class="login-container">
@@ -18,3 +22,4 @@
 </div>
 
 </body>
+</html>
