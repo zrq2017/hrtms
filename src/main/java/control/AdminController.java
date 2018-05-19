@@ -1,9 +1,15 @@
 package control;
 
+import model.Course;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import serivce.AdminService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zrq on 2018-5-19.
@@ -11,6 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/a")
 public class AdminController {
+    @Autowired
+    private AdminService adminService;
+
+    @RequestMapping("course")
+    public String course(Map<String,Object> map){
+        List<Course> courseList=adminService.findAll();
+        map.put("courseList",courseList);
+        return "course";
+    }
 
     /**
      * 任意页面

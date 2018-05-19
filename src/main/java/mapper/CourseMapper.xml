@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AdminMapper">
+
+    <delete id="delete" parameterType="int">
+        <!-- 方法的形参是id -->
+        delete from course where id=#{id}
+    </delete>
+
+    <insert id="save" parameterType="model.Course">
+        INSERT into course(name,time,address,desc,teacher) VALUES (#{name},#{time},#{address},#{desc},#{teacher.id})
+    </insert>
+
+    <update id="update" parameterType="model.Course">
+        UPDATE course set name=#{name},time=#{time},desc=#{desc},teacher=#{teacher.id},address=#{address}
+        WHERE id=#{id}
+    </update>
+
+    <select id="findByConditions" parameterType="String" resultType="model.Course">
+        select * from course WHERE 1=1
+        <if test="name != null and name != ''">and name like CONCAT('%', #{name}, '%')</if>
+        <if test="id != null">and id=#{id}</if>
+    </select>
+
+    <select id="findAll" resultType="model.Course" >
+        SELECT * FROM course
+    </select>
+</mapper>

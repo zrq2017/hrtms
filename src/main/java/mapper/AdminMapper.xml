@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AdminMapper">
+
+    <delete id="delete" parameterType="int">
+        <!-- 方法的形参是id -->
+        delete from employee where id=#{id}
+    </delete>
+
+    <insert id="save" parameterType="model.Employee">
+        INSERT into employee VALUE (name,sex,year,password)
+    </insert>
+
+    <update id="update" parameterType="model.Employee">
+        UPDATE USER set username=#{user.username},sex=#{sex},isAdmin=#{isAdmin},password=#{password},email=#{email}
+        WHERE id=#{id}
+    </update>
+
+    <select id="findEmployee" parameterType="String" resultType="model.Employee">
+        select * from employee WHERE name=#{name};
+    </select>
+
+    <select id="findAll" resultType="model.Employee" >
+        SELECT * FROM employee
+    </select>
+
+
+
+</mapper>

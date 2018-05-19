@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component("employee")
 public class Employee {
     private int id;
+    private String username;
     private String name;
     private int sex;
     private int year;
@@ -20,6 +21,14 @@ public class Employee {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {

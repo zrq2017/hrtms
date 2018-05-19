@@ -1,5 +1,4 @@
 /target/
-/src/main/resources/Spring-mybaits.xml
 !.mvn/wrapper/maven-wrapper.jar
 
 .idea/

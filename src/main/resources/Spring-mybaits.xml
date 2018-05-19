@@ -43,6 +43,17 @@
         <property name="mapperInterface" value="mapper.EmployeeMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
+
+    <bean id="CourseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="mapper.CourseMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+    <bean id="AdminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="mapper.AdminMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
     <bean id="test" class="serivce.Test">
         <property name="userMapper" ref="userMapper"/>
     </bean>
