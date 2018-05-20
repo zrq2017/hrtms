@@ -12,11 +12,11 @@
     </delete>
 
     <insert id="save" parameterType="model.Course">
-        INSERT into course(name,time,address,desc,teacher) VALUES (#{name},#{time},#{address},#{desc},#{teacher.id})
+        INSERT into course(name,time,address,describle) VALUES (#{name},#{time},#{address},#{describle})
     </insert>
 
     <update id="update" parameterType="model.Course">
-        UPDATE course set name=#{name},time=#{time},desc=#{desc},teacher=#{teacher.id},address=#{address}
+        UPDATE course set name=#{name},time=#{time},describle=#{describle},address=#{address}
         WHERE id=#{id}
     </update>
 

@@ -1,5 +1,7 @@
 package model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -8,9 +10,10 @@ import java.util.Date;
 public class Course {
     private Integer id;
     private String name;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date time;
     private String address;
-    private String desc;
+    private String describle;
     private User teacher;
 
     public Integer getId() {
@@ -45,12 +48,12 @@ public class Course {
         this.address = address;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescrible() {
+        return describle;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescrible(String describle) {
+        this.describle = describle;
     }
 
     public User getTeacher() {

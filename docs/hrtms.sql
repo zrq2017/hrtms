@@ -53,10 +53,10 @@ CREATE TABLE `course` (
   `name` varchar(45) NOT NULL,
   `time` datetime DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `desc` varchar(200) DEFAULT NULL,
+  `describle` varchar(200) DEFAULT NULL,
   `teacher` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,'java培训',NULL,'公司大楼','简单的技巧教学',NULL),(2,'jQuery培训',NULL,'公司大楼','jQuery技巧简单教学',NULL);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,6 +95,31 @@ LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
 INSERT INTO `employee` VALUES (2018001,'lyh','刘益杭',0,22,'1111'),(2018002,'zrq','zrq',0,22,'zrq');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `score`
+--
+
+DROP TABLE IF EXISTS `score`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `score` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `course` int(11) DEFAULT NULL,
+  `employee` int(11) DEFAULT NULL,
+  `score` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `score`
+--
+
+LOCK TABLES `score` WRITE;
+/*!40000 ALTER TABLE `score` DISABLE KEYS */;
+/*!40000 ALTER TABLE `score` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -133,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-19 17:23:32
+-- Dump completed on 2018-05-20 23:44:58

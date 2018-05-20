@@ -25,4 +25,12 @@ public class AdminService {
     public int deleteCourse(Integer id) {
         return courseMapper.delete(id);
     }
+
+    public Integer addCourse(Course course) {
+        return courseMapper.save(course);
+    }
+
+    public Integer updateCourse(Course course) {
+        return courseMapper.update(course);
+    }
 }

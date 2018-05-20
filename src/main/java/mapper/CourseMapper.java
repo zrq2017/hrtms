@@ -10,7 +10,7 @@ import java.util.List;
 public interface CourseMapper {
     public List<Course> findAll();
     public List<Course> findByConditions(Course course);
-    public void save(Course Course);
-    public void update(Course Course);
+    public int save(Course Course);
+    public int update(Course Course);
     public int delete(int id);
 }
