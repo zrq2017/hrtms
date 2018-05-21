@@ -27,6 +27,8 @@ CREATE TABLE `admin` (
   `username` varchar(45) DEFAULT NULL,
   `name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
+  `sex` int(11) DEFAULT NULL,
+  `year` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,7 +39,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'admin','admin','admin');
+INSERT INTO `admin` VALUES (1,'admin','admin','admin',0,22);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +67,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'java培训',NULL,'公司大楼','简单的技巧教学',NULL),(2,'jQuery培训',NULL,'公司大楼','jQuery技巧简单教学',NULL);
+INSERT INTO `course` VALUES (1,'java培训',NULL,'公司大楼','简单的技巧教学',NULL),(2,'jQuery培训',NULL,'公司大厦','jQuery简单的技巧教学',NULL);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,6 +100,32 @@ INSERT INTO `employee` VALUES (2018001,'lyh','刘益杭',0,22,'1111'),(2018002,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `money`
+--
+
+DROP TABLE IF EXISTS `money`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `money` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `course` int(11) NOT NULL,
+  `teacher` int(11) NOT NULL,
+  `price` int(11) DEFAULT '-1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `money`
+--
+
+LOCK TABLES `money` WRITE;
+/*!40000 ALTER TABLE `money` DISABLE KEYS */;
+INSERT INTO `money` VALUES (1,1,1,100);
+/*!40000 ALTER TABLE `money` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `score`
 --
 
@@ -110,7 +138,7 @@ CREATE TABLE `score` (
   `employee` int(11) DEFAULT NULL,
   `score` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +147,7 @@ CREATE TABLE `score` (
 
 LOCK TABLES `score` WRITE;
 /*!40000 ALTER TABLE `score` DISABLE KEYS */;
+INSERT INTO `score` VALUES (1,2,2018002,90),(2,2,2018002,95);
 /*!40000 ALTER TABLE `score` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-20 23:44:58
+-- Dump completed on 2018-05-21 17:03:47
