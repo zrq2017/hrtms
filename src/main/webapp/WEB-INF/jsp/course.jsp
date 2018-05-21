@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="time">课程时间</label>
-                        <input type="text" class="form-control" name="time" id="time" placeholder="请输入课程时间">
+                        <input type="text" class="form-control" name="time" id="time" placeholder="课程时间:yyyy-MM-dd HH:mm:ss">
                     </div>
                     <div class="form-group">
                         <label for="address">上课地点</label>

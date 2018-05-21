@@ -25,17 +25,6 @@ import java.util.Map;
 public class AdminController {
     @Autowired
     private AdminService adminService;
-    @Autowired
-    private UserService userService;
-
-    @RequestMapping("saveInfo")
-    public String info(HttpServletRequest request,Map<String, Object> map,User user){
-        user.setRole((String)request.getSession().getAttribute("role"));
-        Integer i=userService.update(user);
-        request.getSession().setAttribute("User",user);
-        return "info";
-    }
-
     @RequestMapping("money")
     public String money(Map<String,Object> map,Money money){
         List<Money> moneyList=adminService.findMoney(money);

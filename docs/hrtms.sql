@@ -67,7 +67,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'java培训',NULL,'公司大楼','简单的技巧教学',NULL),(2,'jQuery培训',NULL,'公司大厦','jQuery简单的技巧教学',NULL);
+INSERT INTO `course` VALUES (1,'java培训','2018-05-19 09:00:00','公司大楼','简单的技巧教学',1),(2,'jQuery培训','2018-06-19 09:00:00','公司大厦','jQuery简单的技巧教学',1);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,9 +136,9 @@ CREATE TABLE `score` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `course` int(11) DEFAULT NULL,
   `employee` int(11) DEFAULT NULL,
-  `score` int(3) DEFAULT NULL,
+  `score` int(3) DEFAULT '-1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +147,7 @@ CREATE TABLE `score` (
 
 LOCK TABLES `score` WRITE;
 /*!40000 ALTER TABLE `score` DISABLE KEYS */;
-INSERT INTO `score` VALUES (1,2,2018002,90),(2,2,2018002,95);
+INSERT INTO `score` VALUES (1,2,2018002,90),(2,1,2018002,95),(3,1,2018001,-1);
 /*!40000 ALTER TABLE `score` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +166,7 @@ CREATE TABLE `teacher` (
   `year` int(11) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +175,7 @@ CREATE TABLE `teacher` (
 
 LOCK TABLES `teacher` WRITE;
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-INSERT INTO `teacher` VALUES (1,'zrq','zrq',0,22,'zrq');
+INSERT INTO `teacher` VALUES (1,'zrq','zrq',0,22,'zrq'),(2,'lyh','lyh',1,23,'lyh');
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -188,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-21 17:03:47
+-- Dump completed on 2018-05-21 22:49:55

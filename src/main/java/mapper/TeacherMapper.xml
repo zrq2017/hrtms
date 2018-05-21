@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.TeacherMapper">
+    <update id="save">
+        UPDATE course set teacher=#{tid} WHERE id=#{id}
+    </update>
+
+    <update id="delete">
+        UPDATE course set teacher=null WHERE id=#{id}
+    </update>
+
+    <update id="updateScore" parameterType="model.Score">
+        UPDATE score set score=#{score} WHERE id=#{id}
+    </update>
+
+    <select id="findMyCourse"  resultMap="CourseResult">
+        SELECT * FROM course where teacher=#{id} ORDER  BY time
+    </select>
+    <resultMap type="model.Course" id="CourseResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="time" column="time"/>
+        <result property="address" column="address"/>
+        <result property="describle" column="describle"/>
+        <association property="teacher" column="teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="getTeacher" parameterType="int" resultType="model.User">
+        SELECT * FROM teacher WHERE id=#{id}
+    </select>
+
+    <select id="findMyStudent"  resultMap="ScoreResult">
+        SELECT * FROM score a left join course c on a.course=c.id where c.teacher=#{id}
+    </select>
+    <resultMap type="model.Score" id="ScoreResult">
+        <id property="id" column="id"/>
+        <result property="score" column="score"/>
+        <association property="course" column="course" select="getCourse"/>
+        <association property="employee" column="employee" select="getEmployee"/>
+    </resultMap>
+    <select id="getCourse" parameterType="int" resultType="model.Course">
+        SELECT * FROM course WHERE id=#{id}
+    </select>
+    <select id="getEmployee" parameterType="int" resultType="model.Employee">
+        SELECT * FROM employee WHERE id=#{id}
+    </select>
+</mapper>

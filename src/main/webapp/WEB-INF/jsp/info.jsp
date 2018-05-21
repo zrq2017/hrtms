@@ -19,7 +19,7 @@
 <div id="wrapper">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form action="${per}/saveInfo" method="post">
+            <form action="${ctx}/saveInfo" method="post">
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>

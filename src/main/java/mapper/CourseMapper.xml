@@ -52,7 +52,18 @@
         <if test="id != null">and a.id=#{id}</if>
     </select>
 
-    <select id="findAll" resultType="model.Course" >
+    <select id="findAll"  resultMap="CourseResult">
         SELECT * FROM course
+    </select>
+    <resultMap type="model.Course" id="CourseResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="time" column="time"/>
+        <result property="address" column="address"/>
+        <result property="describle" column="describle"/>
+        <association property="teacher" column="teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="getTeacher" parameterType="int" resultType="model.User">
+        SELECT * FROM teacher WHERE id=#{id}
     </select>
 </mapper>

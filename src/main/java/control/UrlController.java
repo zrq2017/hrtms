@@ -65,7 +65,7 @@ public class UrlController {
         }else{//此处应该将登录者的信息传到首页。保存不同角色的功能列表
             user.setPassword("");
             Map<String,String> navMap=new TreeMap<String,String>();
-            navMap.put("/"+url.substring(0,1)+"/info","个人信息");
+            navMap.put("/info","个人信息");
             if(url.equals("employee")){
                 navMap.put("/e/course","课程列表");
                 navMap.put("/e/mycourse","我的课程");
@@ -87,6 +87,14 @@ public class UrlController {
             request.getSession().setAttribute("navMap",navMap);
             return "redirect:/home";
         }
+    }
+
+    @RequestMapping("saveInfo")
+    public String info(HttpServletRequest request,Map<String, Object> map,User user){
+        user.setRole((String)request.getSession().getAttribute("role"));
+        Integer i=userService.update(user);
+        request.getSession().setAttribute("User",user);
+        return "info";
     }
 
     //默认页，个人主页框架页面资源导入
