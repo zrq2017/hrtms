@@ -1,7 +1,10 @@
 package serivce;
 
+import mapper.AdminMapper;
 import mapper.CourseMapper;
 import model.Course;
+import model.Money;
+import model.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +17,8 @@ import java.util.List;
 public class AdminService {
     @Autowired
     private CourseMapper courseMapper;
+    @Autowired
+    private AdminMapper adminMapper;
     /**
      * 返回所有课程信息
      * @return
@@ -32,5 +37,17 @@ public class AdminService {
 
     public Integer updateCourse(Course course) {
         return courseMapper.update(course);
+    }
+
+    public List<Score> findScore(Course course) {
+        return courseMapper.findScoreByConditions(course);
+    }
+
+    public List<Money> findMoney(Money money) {
+        return adminMapper.findMoney(money);
+    }
+
+    public Integer updateMoney(Money money) {
+        return adminMapper.updateMoney(money);
     }
 }

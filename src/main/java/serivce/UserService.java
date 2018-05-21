@@ -9,6 +9,7 @@ public interface UserService {
 
     //注册
     void add(User user);
+    int update(User user);
     // 登录
     Boolean login(String username, String password);
     //查找，按用户名查找，用户id查找

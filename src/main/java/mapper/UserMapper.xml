@@ -16,7 +16,7 @@
 </insert>
 
 <update id="update" parameterType="model.User">
-    UPDATE USER set username=#{user.username},sex=#{sex},isAdmin=#{isAdmin},password=#{password},email=#{email}
+    UPDATE ${role} set name=#{name},username=#{username},sex=#{sex},year=#{year}
     WHERE id=#{id}
 </update>
 

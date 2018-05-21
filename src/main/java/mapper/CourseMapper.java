@@ -1,6 +1,7 @@
 package mapper;
 
 import model.Course;
+import model.Score;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface CourseMapper {
     public int save(Course Course);
     public int update(Course Course);
     public int delete(int id);
+    public List<Score> findScoreByConditions(Course course);
 }

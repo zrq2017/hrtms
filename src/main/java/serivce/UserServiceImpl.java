@@ -38,6 +38,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int update(User user) {
+        return userMapper.update(user);
+    }
+
+    @Override
     public Boolean login(String userName, String passWord) {
         System.out.println(userName);
         this.user.setUsername(userName);

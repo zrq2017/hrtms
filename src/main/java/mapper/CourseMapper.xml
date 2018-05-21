@@ -6,6 +6,22 @@
 
 <mapper namespace="mapper.CourseMapper">
 
+    <sql id="scoreColumns">
+        a.id,
+        a.course AS "course.id",
+        a.employee AS "employee.id",
+        a.score,
+        c.name AS "course.name",
+        c.address AS "course.address",
+        e.username AS "employee.username",
+        e.name AS "employee.name"
+    </sql>
+
+    <sql id="scoreJoins">
+        LEFT JOIN course c ON c.id = a.course
+        LEFT JOIN employee e ON e.id = a.employee
+    </sql>
+
     <delete id="delete" parameterType="int">
         <!-- 方法的形参是id -->
         delete from course where id=#{id}
@@ -20,10 +36,20 @@
         WHERE id=#{id}
     </update>
 
-    <select id="findByConditions" parameterType="String" resultType="model.Course">
+    <select id="findByConditions" parameterType="model.Course" resultType="model.Course">
         select * from course WHERE 1=1
         <if test="name != null and name != ''">and name like CONCAT('%', #{name}, '%')</if>
         <if test="id != null">and id=#{id}</if>
+    </select>
+
+    <select id="findScoreByConditions" parameterType="model.Course" resultType="model.Score">
+        select
+        <include refid="scoreColumns"/>
+        from score a
+        <include refid="scoreJoins"/>
+        WHERE 1=1
+        <if test="name != null and name != ''">and a.name like CONCAT('%', #{name}, '%')</if>
+        <if test="id != null">and a.id=#{id}</if>
     </select>
 
     <select id="findAll" resultType="model.Course" >
