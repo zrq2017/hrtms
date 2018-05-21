@@ -10,7 +10,7 @@
     <div class="row" >
         <div class="col-md-10 col-md-offset-1">
             <table class="table table-striped">
-                <caption>课程列表</caption>
+                <caption>我的课表</caption>
                 <thead>
                 <tr>
                     <th>课程名称</th>

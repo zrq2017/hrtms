@@ -1,8 +1,11 @@
 package serivce;
 
+import mapper.CourseMapper;
 import mapper.EmployeeMapper;
+import model.Course;
 import model.Employee;
 
+import model.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +14,8 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
+    @Autowired
+    private CourseMapper courseMapper;
 
     public EmployeeMapper getEmployeeMapper() {
         return employeeMapper;
@@ -77,5 +82,30 @@ public class EmployeeServiceImpl implements EmployeeService {
     //查找所有用户
     public List<Employee> findAll(){
         return this.employeeMapper.findAll();
+    }
+
+    @Override
+    public List<Course> findAllCourse() {
+        return courseMapper.findAll();
+    }
+
+    @Override
+    public List<Score> findMyCourse(Integer id) {
+        return employeeMapper.findMyCourse(id);
+    }
+
+    @Override
+    public Integer judgeMyCourse(Integer uid, Integer id) {
+        return employeeMapper.judgeMyCourse(uid,id);
+    }
+
+    @Override
+    public Integer addCourse(Integer uid, Integer id) {
+        return employeeMapper.addCourse(uid,id);
+    }
+
+    @Override
+    public Integer deleteCourse(Integer id) {
+        return employeeMapper.deleteCourse(id);
     }
 }

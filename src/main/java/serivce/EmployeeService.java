@@ -1,6 +1,8 @@
 package serivce;
 
+import model.Course;
 import model.Employee;
+import model.Score;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,5 +30,15 @@ public interface EmployeeService {
 
     //查找所有用户
     List<Employee> findAll();
+
+    List<Course> findAllCourse();
+
+    List<Score> findMyCourse(Integer id);
+
+    Integer judgeMyCourse(Integer uid, Integer id);
+
+    Integer addCourse(Integer uid, Integer id);
+
+    Integer deleteCourse(Integer id);
 }
 

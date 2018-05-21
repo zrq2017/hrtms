@@ -1,8 +1,11 @@
 package control;
 
 import com.sun.javafx.sg.prism.NGShape;
+import model.Course;
 import model.Employee;
 
+import model.Score;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import serivce.EmployeeService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -31,6 +36,41 @@ public class EmployeeController {
 
     public void setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @RequestMapping("deleteCourse")
+    public String deleteCourse(HttpServletRequest request,Map<String,Object> map,@RequestParam("id") Integer id){
+        Integer j = employeeService.deleteCourse(id);
+        return mycourse(request,map);
+    }
+
+    @RequestMapping("addCourse")
+    public String addCourse(HttpServletRequest request,Map<String,Object> map,@RequestParam("id") Integer id){
+        String msg="";
+        Integer uid=((User)request.getSession().getAttribute("User")).getId();
+        Integer i=employeeService.judgeMyCourse(uid,id);
+        if(i==0) {
+            Integer j = employeeService.addCourse(uid, id);
+        }else{
+            map.put("msg","已报名，无需重复报名！！");
+            return course(map);
+        }
+        return mycourse(request,map);
+    }
+
+    @RequestMapping("mycourse")
+    public String mycourse(HttpServletRequest request,Map<String, Object> map){
+        Integer uid=((User)request.getSession().getAttribute("User")).getId();
+        List<Score> scoreList=employeeService.findMyCourse(uid);
+        map.put("scoreList",scoreList);
+        return "mycourse";
+    }
+
+    @RequestMapping("course")
+    public String course(Map<String,Object> map){
+        List<Course> courseList=employeeService.findAllCourse();
+        map.put("courseList",courseList);
+        return "mycourse";
     }
 
     //注册

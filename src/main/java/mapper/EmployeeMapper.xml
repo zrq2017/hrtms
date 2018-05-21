@@ -11,8 +11,17 @@
         delete from employee where id=#{id}
     </delete>
 
+    <delete id="deleteCourse" parameterType="int">
+        <!-- 方法的形参是id -->
+        delete from score where id=#{id}
+    </delete>
+
     <insert id="save" parameterType="model.Employee">
         INSERT into employee VALUE (name,sex,year,password)
+    </insert>
+
+    <insert id="addCourse">
+        INSERT into score (course,employee) VALUE (#{id},#{uid})
     </insert>
 
     <update id="update" parameterType="model.Employee">
@@ -24,10 +33,34 @@
         select * from employee WHERE name=#{name};
     </select>
 
+    <select id="judgeMyCourse" resultType="java.lang.Integer" >
+        select count(*)  from score WHERE course=#{id} and employee=#{uid};
+    </select>
+
     <select id="findAll" resultType="model.Employee" >
         SELECT * FROM employee
     </select>
 
-
-
+    <select id="findMyCourse" resultMap="ScoreResult" >
+        SELECT *  FROM score WHERE employee=#{id}
+    </select>
+    <resultMap type="model.Score" id="ScoreResult">
+        <id property="id" column="id"/>
+        <result property="score" column="score"/>
+        <association property="course" column="course" select="getCourse"/>
+    </resultMap>
+    <select id="getCourse" parameterType="int" resultMap="CourseResult" >
+        SELECT * FROM course WHERE id=#{id}
+    </select>
+    <resultMap type="model.Course" id="CourseResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="time" column="time"/>
+        <result property="address" column="address"/>
+        <result property="describle" column="describle"/>
+        <association property="teacher" column="teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="getTeacher" parameterType="int" resultType="model.User">
+        SELECT * FROM teacher WHERE id=#{id}
+    </select>
 </mapper>
