@@ -149,6 +149,9 @@ a:hover {
 	float:left;
 	font-size:14px;
 }
+.entrance a{
+	font-size: 10px;
+}
 /*----------------------------------mainbody-------------------------------*/
 .mainbody {
 	/*margin-left:241px;*/

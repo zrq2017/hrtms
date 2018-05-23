@@ -79,6 +79,7 @@ public class UrlController {
                 navMap.put("/a/course","课程列表");
                 navMap.put("/a/score","成绩列表");
                 navMap.put("/a/money","薪酬管理");
+                navMap.put("/a/user","用户管理");
                 System.out.println("admin");
             }
             System.out.println("path:"+request.getContextPath());

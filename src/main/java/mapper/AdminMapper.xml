@@ -30,8 +30,20 @@
         WHERE 1=1
         <if test="course != null and course.id != null">and a.course=#{course.id}</if>
     </select>
+
     <update id="updateMoney" parameterType="model.Money">
         UPDATE money set price=#{price}
         WHERE id=#{id}
     </update>
+
+    <select id="findUser" parameterType="java.lang.String" resultType="model.User">
+        select * from ${role}
+    </select>
+
+    <insert id="saveUser">
+        INSERT ${role}(username,name,sex,year,password) VALUES (#{username},#{name},#{sex},0,#{username})
+    </insert>
+    <delete id="deleteUser">
+        DELETE from ${role} WHERE id=#{id}
+    </delete>
 </mapper>

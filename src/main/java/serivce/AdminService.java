@@ -5,6 +5,7 @@ import mapper.CourseMapper;
 import model.Course;
 import model.Money;
 import model.Score;
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +50,17 @@ public class AdminService {
 
     public Integer updateMoney(Money money) {
         return adminMapper.updateMoney(money);
+    }
+
+    public List<User> findUser(String role) {
+        return adminMapper.findUser(role);
+    }
+
+    public Integer saveUser(User user) {
+        return adminMapper.saveUser(user);
+    }
+
+    public Integer deleteUser(User user) {
+        return adminMapper.deleteUser(user);
     }
 }

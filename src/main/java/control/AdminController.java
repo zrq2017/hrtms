@@ -25,6 +25,28 @@ import java.util.Map;
 public class AdminController {
     @Autowired
     private AdminService adminService;
+
+    @RequestMapping("deleteUser")
+    public String deleteUser(Map<String,Object> map,User user){
+        Integer i=adminService.deleteUser(user);
+        return user(map,user);
+    }
+
+    @RequestMapping("saveUser")
+    public String saveUser(Map<String,Object> map,User user){
+        Integer i=adminService.saveUser(user);
+        return user(map,user);
+    }
+
+    @RequestMapping("user")
+    public String user(Map<String,Object> map,User user){
+        List<User> userList=adminService.findUser("employee");
+        List<User> tuserList=adminService.findUser("teacher");
+        map.put("userList",userList);
+        map.put("tuserList",tuserList);
+        return "user";
+    }
+
     @RequestMapping("money")
     public String money(Map<String,Object> map,Money money){
         List<Money> moneyList=adminService.findMoney(money);
