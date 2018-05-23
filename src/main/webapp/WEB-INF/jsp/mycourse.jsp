@@ -46,7 +46,7 @@
             <tr id="c${c.id}">
                 <td>${c.name}</td>
                 <td>
-                    <fmt:formatDate value="${c.time}" pattern="MM/dd/yyyy HH:mm"/>
+                    <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm"/>
                 </td>
                 <td>${c.address}</td>
                 <td>${c.describle}</td>
@@ -60,7 +60,7 @@
                 <tr id="s${s.id}">
                     <td>${s.course.name}</td>
                     <td>
-                        <fmt:formatDate value="${s.course.time}" pattern="MM/dd/yyyy HH:mm"/>
+                        <fmt:formatDate value="${s.course.time}" pattern="yyyy-MM-dd HH:mm"/>
                     </td>
                     <td>${s.course.address}</td>
                     <td>${s.course.describle}</td>

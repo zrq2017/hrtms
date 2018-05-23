@@ -72,7 +72,7 @@
             <tr id="c${c.id}">
                 <td>${c.name}</td>
                 <td>
-                    <fmt:formatDate value="${c.time}" pattern="MM/dd/yyyy HH:mm"/>
+                    <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd HH:mm:ss"/>
                 </td>
                 <td>${c.address}</td>
                 <td>${c.describle}</td>

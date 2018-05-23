@@ -89,7 +89,7 @@
             <tr id="m${c.id}">
                 <td>${c.course.name}</td>
                 <td>
-                    <fmt:formatDate value="${c.course.time}" pattern="MM/dd/yyyy HH:mm"/>
+                    <fmt:formatDate value="${c.course.time}" pattern="yyyy-MM-dd HH:mm"/>
                 </td>
                 <td>${c.course.address}</td>
                 <td>${c.teacher.name}</td>
